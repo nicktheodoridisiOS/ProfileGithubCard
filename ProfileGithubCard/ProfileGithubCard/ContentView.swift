@@ -10,114 +10,125 @@ import SwiftUI
 struct ContentView: View {
     
     @State  private var user: User?
-    @State  private var repo: Repository?
+    @StateObject var repository = ViewModel()
     
+    @State  private var isValid = false
     
+    @Binding var searchedText:String
     
     var body: some View {
         VStack (spacing: 20){
             
+            if(!isValid){
+                AsyncImage(url: URL(string: user?.avatarUrl ?? "")) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                }placeholder: {
+                    Circle()
+                        .foregroundColor(.secondary)
+                }
+                .frame(width: 120,height: 120)
             
-            AsyncImage(url: URL(string: user?.avatarUrl ?? "")) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-            }placeholder: {
-                Circle()
-                    .foregroundColor(.secondary)
-            }
-            .frame(width: 120,height: 120)
-        
-            VStack(spacing: 5){
-                Text(user?.name ?? "Name Placeholder")
-                    .font(.title)
-                    .bold()
-                    .font(.title3)
+                VStack(spacing: 5){
+                    Text(user?.name ?? "Name Placeholder")
+                        .font(.title)
+                        .bold()
+                        .font(.title3)
+                    
+                    Text("@")
+                        .foregroundColor(.secondary)
+                    + Text(user?.login ?? "Login Placeholder")
+                        .foregroundColor(.secondary)
+                }
+               
+                Text(user?.bio ?? "Bio Placeholder")
+                    .multilineTextAlignment(.center)
+                    .padding()
                 
-                Text("@")
-                    .foregroundColor(.secondary)
-                + Text(user?.login ?? "Login Placeholder")
-                    .foregroundColor(.secondary)
-            }
-           
-            
-            
-            
-            Text(user?.bio ?? "Bio Placeholder")
-                .multilineTextAlignment(.center)
-                .padding()
-            
 
-            HStack(spacing: 50){
+                HStack(spacing: 50){
+                    VStack{
+                        Text(String(user?.publicRepos ?? 0))
+                            .font(.title)
+                            .bold()
+                        Text("Public Repos")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    }
+                    
+                    VStack{
+                        Text(String(user?.followers ?? 0))
+                            .font(.title)
+                            .bold()
+                        Text("Followers")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    }
+                 
+                    VStack{
+                        Text(String(user?.following ?? 0))
+                            .font(.title)
+                            .bold()
+                        Text("Following")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    }
+                }
+              
                 VStack{
-                    Text(String(user?.publicRepos ?? 0))
-                        .font(.title)
-                        .bold()
-                    Text("Public Repos")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    List{
+                        ForEach(repository.repos , id: \.self){ repo in
+                            Text(repo.name)
+                            
+                        }
+                    }
+                    .onAppear{
+                        repository.fetch(userInputName: searchedText)
+                    }
+                    
                 }
                 
-                VStack{
-                    Text(String(user?.followers ?? 0))
-                        .font(.title)
-                        .bold()
-                    Text("Followers")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                }
-             
-                VStack{
-                    Text(String(user?.following ?? 0))
-                        .font(.title)
-                        .bold()
-                    Text("Following")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                }
+                
+                Spacer()
             }
-          
-            
-            
-            
-            Spacer()
+            else{
+                ErrorView()
+            }
         }
-        .padding()
         .task{
             do{
-                user  = try await getUser()
-                //repo =  try await getRepo()
+                user  = try await getUser(userInputName: searchedText)
             }
             catch GHError.invalideURL{
                     print("Invalid URL")
+                    isValid = false
             }
             catch GHError.invalideResponse{
                 print("Invalid Response")
+                isValid = false
             }
             catch GHError.invalidData{
                 print("Invalid Data")
+                isValid = false
             }
             catch{
                 print("Unecpected Error")
+                isValid = false
             }
         } //load the data before view appears
+        .padding()
     }
     
 }
 
-
-struct Divider: View {
-    
-    var body: some View {
-        Rectangle()
-            .frame(width: 1,height: 30)
-    }
-    
-}
 
 struct ContentView_Previews: PreviewProvider {
+    
+    @State static var searchedText: String = ""
+    
     static var previews: some View {
-        ContentView()
+        ContentView(searchedText: $searchedText)
     }
 }

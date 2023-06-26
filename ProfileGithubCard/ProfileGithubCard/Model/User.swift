@@ -19,9 +19,8 @@ struct User: Codable{
     
 }
 
-func getUser() async throws -> User{
-    let endpoint = "https://api.github.com/users/nicktheodoridisios"
-    
+func getUser(userInputName: String) async throws -> User{
+    let endpoint = "https://api.github.com/users/\(userInputName)"
     
     
     guard let url  = URL(string: endpoint) else {

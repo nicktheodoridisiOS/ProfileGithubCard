@@ -17,6 +17,8 @@
 		69D154402A2E4144002A1A46 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D1543F2A2E4144002A1A46 /* User.swift */; };
 		69D154422A2E4477002A1A46 /* GHError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D154412A2E4477002A1A46 /* GHError.swift */; };
 		69D154442A2E7E86002A1A46 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D154432A2E7E86002A1A46 /* Repository.swift */; };
+		69D1544B2A2F31AE002A1A46 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D1544A2A2F31AE002A1A46 /* SearchView.swift */; };
+		69D1544D2A2FAD57002A1A46 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D1544C2A2FAD57002A1A46 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		69D1543F2A2E4144002A1A46 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		69D154412A2E4477002A1A46 /* GHError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHError.swift; sourceTree = "<group>"; };
 		69D154432A2E7E86002A1A46 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		69D1544A2A2F31AE002A1A46 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		69D1544C2A2FAD57002A1A46 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 		69D154452A2E929B002A1A46 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				69D1544A2A2F31AE002A1A46 /* SearchView.swift */,
+				69D1544C2A2FAD57002A1A46 /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +292,8 @@
 				69D154422A2E4477002A1A46 /* GHError.swift in Sources */,
 				69D154442A2E7E86002A1A46 /* Repository.swift in Sources */,
 				69D154402A2E4144002A1A46 /* User.swift in Sources */,
+				69D1544D2A2FAD57002A1A46 /* ErrorView.swift in Sources */,
+				69D1544B2A2F31AE002A1A46 /* SearchView.swift in Sources */,
 				69D154152A2E3F31002A1A46 /* ProfileGithubCardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
