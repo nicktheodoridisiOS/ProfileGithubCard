@@ -8,13 +8,13 @@
 import Foundation
 
 struct User: Codable{
-    let avatarUrl: String
-    let name: String
-    let login: String
-    let bio: String
-    let publicRepos: Int
-    let followers: Int
-    let following: Int
+    let avatarUrl: String?
+    let name: String?
+    let login: String?
+    let bio: String?
+    let publicRepos: Int?
+    let followers: Int?
+    let following: Int?
     
     
 }

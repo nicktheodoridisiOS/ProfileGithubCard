@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State  private var user: User?
-    @StateObject var repository = ViewModel()
+    
+    @StateObject var repository = RepoModel()
     
     @State  private var isValid = false
     
@@ -59,12 +60,21 @@ struct ContentView: View {
                     }
                     
                     VStack{
-                        Text(String(user?.followers ?? 0))
-                            .font(.title)
-                            .bold()
+                        NavigationLink {
+                            FollowersView(searchedText: $searchedText)
+                        } label: {
+                            Text(String(user?.followers ?? 0))
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.primary)
+                        }
+
+                    
                         Text("Followers")
                         .font(.caption)
                         .foregroundColor(.secondary)
+
+                        
                     }
                  
                     VStack{
@@ -80,18 +90,27 @@ struct ContentView: View {
                 VStack{
                     List{
                         ForEach(repository.repos , id: \.self){ repo in
-                            Text(repo.name)
-                            
+                            RoundedRectangle(cornerRadius: 30)
+                                .frame(width: 300 , height: 150)
+                                .foregroundColor(.secondary.opacity(0.2))
+                                .overlay{
+                                    VStack{
+                                        Text(repo.name ?? "Name Placeholder")
+                                        Text(repo.description ?? "Description Placeholder")
+                                            .foregroundColor(.secondary)
+                                        Text(repo.language ?? "Language Placeholder")
+                                            .foregroundColor(.accentColor)
+                                    }
+
+                                }
                         }
                     }
+                    .listStyle(.plain)
                     .onAppear{
                         repository.fetch(userInputName: searchedText)
                     }
                     
                 }
-                
-                
-                Spacer()
             }
             else{
                 ErrorView()

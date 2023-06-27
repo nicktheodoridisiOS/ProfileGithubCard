@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691BFDCF2A4B5B4D00B9071A /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691BFDCE2A4B5B4D00B9071A /* Follower.swift */; };
+		691BFDD12A4B5D0000B9071A /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691BFDD02A4B5D0000B9071A /* FollowersView.swift */; };
+		6960A0422A4AF7C5004983A9 /* TabControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6960A0412A4AF7C5004983A9 /* TabControllerView.swift */; };
 		69D154152A2E3F31002A1A46 /* ProfileGithubCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D154142A2E3F31002A1A46 /* ProfileGithubCardApp.swift */; };
 		69D154172A2E3F31002A1A46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69D154162A2E3F31002A1A46 /* ContentView.swift */; };
 		69D154192A2E3F33002A1A46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69D154182A2E3F33002A1A46 /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		691BFDCE2A4B5B4D00B9071A /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		691BFDD02A4B5D0000B9071A /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
+		6960A0412A4AF7C5004983A9 /* TabControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControllerView.swift; sourceTree = "<group>"; };
 		69D154112A2E3F31002A1A46 /* ProfileGithubCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileGithubCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69D154142A2E3F31002A1A46 /* ProfileGithubCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGithubCardApp.swift; sourceTree = "<group>"; };
 		69D154162A2E3F31002A1A46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			children = (
 				69D1543F2A2E4144002A1A46 /* User.swift */,
 				69D154432A2E7E86002A1A46 /* Repository.swift */,
+				691BFDCE2A4B5B4D00B9071A /* Follower.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +161,8 @@
 			children = (
 				69D1544A2A2F31AE002A1A46 /* SearchView.swift */,
 				69D1544C2A2FAD57002A1A46 /* ErrorView.swift */,
+				6960A0412A4AF7C5004983A9 /* TabControllerView.swift */,
+				691BFDD02A4B5D0000B9071A /* FollowersView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -291,9 +300,12 @@
 				69D154172A2E3F31002A1A46 /* ContentView.swift in Sources */,
 				69D154422A2E4477002A1A46 /* GHError.swift in Sources */,
 				69D154442A2E7E86002A1A46 /* Repository.swift in Sources */,
+				691BFDCF2A4B5B4D00B9071A /* Follower.swift in Sources */,
+				691BFDD12A4B5D0000B9071A /* FollowersView.swift in Sources */,
 				69D154402A2E4144002A1A46 /* User.swift in Sources */,
 				69D1544D2A2FAD57002A1A46 /* ErrorView.swift in Sources */,
 				69D1544B2A2F31AE002A1A46 /* SearchView.swift in Sources */,
+				6960A0422A4AF7C5004983A9 /* TabControllerView.swift in Sources */,
 				69D154152A2E3F31002A1A46 /* ProfileGithubCardApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ProfileGithubCard/Preview Content\"";
+				DEVELOPMENT_TEAM = J32RGX64P6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -481,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ProfileGithubCard/Preview Content\"";
+				DEVELOPMENT_TEAM = J32RGX64P6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

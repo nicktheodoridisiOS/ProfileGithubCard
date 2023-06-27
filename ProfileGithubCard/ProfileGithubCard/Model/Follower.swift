@@ -1,26 +1,26 @@
 //
-//  GithubUser.swift
+//  Follower.swift
 //  ProfileGithubCard
 //
-//  Created by Nick Theodoridis on 5/6/23.
+//  Created by Nick Theodoridis on 27/6/23.
 //
+
 import Foundation
 
 
-struct Repository: Hashable,Codable{
-    let name: String?
-    let description: String?
-    let language: String?
+struct Follower: Hashable,Codable{
+    let login: String?
+    let avatar_url: String?
     
 }
 
 
-class RepoModel: ObservableObject{
+class FollowerModel: ObservableObject{
     
-    @Published var repos: [Repository] = []
+    @Published var follower: [Follower] = []
     
     func fetch(userInputName: String){
-        guard let url = URL(string: "https://api.github.com/users/\(userInputName)/repos") else{
+        guard let url = URL(string: "https://api.github.com/users/\(userInputName)/followers") else{
             return
         }
         
@@ -31,9 +31,9 @@ class RepoModel: ObservableObject{
             
             
             do{
-                let repos = try JSONDecoder().decode([Repository].self, from: data)
+                let follower = try JSONDecoder().decode([Follower].self, from: data)
                 DispatchQueue.main.async {
-                    self?.repos = repos
+                    self?.follower = follower
                 }
             }
             catch{
@@ -44,3 +44,4 @@ class RepoModel: ObservableObject{
     }
     
 }
+
